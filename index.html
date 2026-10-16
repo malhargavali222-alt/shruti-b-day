@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Shruti ☕✨</title>
+  <meta name="theme-color" content="#2b1a12">
+
+  <!-- Optional fonts (free). If offline, the site falls back to Georgia / system fonts. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+
+  <div class="progress" id="progress"></div>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+  <div class="particles" id="particles" aria-hidden="true"></div>
+
+  <!-- ============ 1. CINEMATIC OPENING SCREEN ============ -->
+  <section class="intro play" id="intro">
+    <div class="bar top"></div>
+    <div class="bar bottom"></div>
+    <div class="intro-inner">
+      <p class="intro-line l1">Some days deserve a grand entrance…</p>
+      <p class="intro-line l2">and this one belongs to someone very special.</p>
+      <h1 class="intro-name l3">Shruti Gavali</h1>
+      <button class="btn gold intro-btn l4" id="openBtn" type="button">☕ Open your surprise</button>
+    </div>
+  </section>
+
+  <main id="site">
+
+    <!-- ============ 2. ANIMATED HERO ============ -->
+    <section class="hero" id="hero">
+      <p class="eyebrow hf" style="--h:0">18 October</p>
+      <h2 class="hero-title" id="heroTitle">Happy Birthday</h2>
+      <p class="hero-script hf" style="--h:1">Shruti</p>
+
+      <div class="hero-photo hf" style="--h:2">
+        <img data-photo="hero" alt="Shruti smiling">
+      </div>
+
+      <p class="hero-sub hf" style="--h:3">To my favourite coffee-loving, future-famous architect ☕🏛️</p>
+      <div class="countdown hf" id="countdown" style="--h:4"></div>
+
+      <div class="hero-actions hf" style="--h:5">
+        <button class="btn dark js-celebrate" type="button">🎉 Celebrate</button>
+        <a class="btn ghost" href="#nicknames">Scroll down ↓</a>
+      </div>
+    </section>
+
+    <!-- ============ 3. NICKNAME CARDS ============ -->
+    <section class="section" id="nicknames">
+      <div class="container">
+        <header class="sec-head reveal">
+          <p class="eyebrow">Official Records</p>
+          <h2 class="title">Names She Answers To</h2>
+          <p class="lede">Tap a card to read the official description.</p>
+        </header>
+
+        <div class="cards">
+          <button class="flip-card reveal" type="button" aria-pressed="false">
+            <span class="flip-inner">
+              <span class="face front">
+                <span class="emoji">⚡</span>
+                <span class="nick">Pikachu</span>
+                <span class="tap">tap to flip</span>
+              </span>
+              <span class="face back">
+                <span class="role">Official description</span>
+                <span class="desc">Small voltage, big impact. Fully charged when excited, dangerously cute when annoyed. Please do not touch during a low-battery mood.</span>
+              </span>
+            </span>
+          </button>
+
+          <button class="flip-card reveal" type="button" aria-pressed="false">
+            <span class="flip-inner">
+              <span class="face front">
+                <span class="emoji">👑</span>
+                <span class="nick">Dhole Madam</span>
+                <span class="tap">tap to flip</span>
+              </span>
+              <span class="face back">
+                <span class="role">Official description</span>
+                <span class="desc">Her Highness, the one and only. Her word is final, her opinions are free, and her attitude always arrives before she does.</span>
+              </span>
+            </span>
+          </button>
+
+          <button class="flip-card reveal" type="button" aria-pressed="false">
+            <span class="flip-inner">
+              <span class="face front">
+                <span class="emoji">🗣️</span>
+                <span class="nick">Dok Khau</span>
+                <span class="tap">tap to flip</span>
+              </span>
+              <span class="face back">
+                <span class="role">Official description</span>
+                <span class="desc">Master of non-stop conversation. Will talk until your ears ask for a coffee break. Thankfully, the stories are always worth it.</span>
+              </span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. INTERACTIVE COFFEE ============ -->
+    <section class="section alt" id="coffee">
+      <div class="container">
+        <header class="sec-head reveal">
+          <p class="eyebrow">Fuel of a Future Architect</p>
+          <h2 class="title">Brew Her Perfect Cup</h2>
+          <p class="lede">Pick the ingredients, watch the cup fill, then serve it.</p>
+        </header>
+
+        <div class="coffee-wrap">
+          <div class="cup-stage reveal" aria-hidden="true">
+            <div class="steam" id="steam"><i></i><i></i><i></i></div>
+            <div class="cup">
+              <div class="liquid" id="liquid"><div class="foam" id="foam"></div></div>
+              <span class="cup-mono">S</span>
+            </div>
+            <div class="handle"></div>
+            <div class="saucer"></div>
+          </div>
+
+          <div class="coffee-ui reveal">
+            <p class="mini">Build the cup</p>
+            <div class="chips" id="chips">
+              <button class="chip" type="button" data-ing="espresso" aria-pressed="false">☕ Espresso</button>
+              <button class="chip" type="button" data-ing="milk" aria-pressed="false">🥛 Milk</button>
+              <button class="chip" type="button" data-ing="caramel" aria-pressed="false">🍯 Caramel</button>
+              <button class="chip" type="button" data-ing="rose" aria-pressed="false">🌸 Rose syrup</button>
+              <button class="chip" type="button" data-ing="sugar" aria-pressed="false">🍬 Extra sweet</button>
+              <button class="chip" type="button" data-ing="foam" aria-pressed="false">☁️ Foam</button>
+            </div>
+            <div class="coffee-actions">
+              <button class="btn dark" id="serveBtn" type="button">Serve it ✨</button>
+              <button class="btn ghost" id="coffeeReset" type="button">Start over</button>
+            </div>
+            <div class="coffee-result" id="coffeeResult" aria-live="polite">Start with espresso, then add whatever she would order.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5. BLUEPRINT → BUILDING ============ -->
+    <section class="section dark" id="blueprint">
+      <div class="container">
+        <header class="sec-head reveal">
+          <p class="eyebrow">Future Skyline</p>
+          <h2 class="title">From Blueprint to Building</h2>
+          <p class="lede">Every skyline starts as a line on paper.</p>
+        </header>
+
+        <div class="bp-stage reveal" id="bpStage">
+          <svg viewBox="0 0 600 400" role="img" aria-label="Animated architectural drawing that turns into a finished building">
+            <defs>
+              <pattern id="gridPat" width="20" height="20" patternUnits="userSpaceOnUse">
+                <path d="M20 0H0V20" fill="none" stroke="currentColor" stroke-width="1"/>
+              </pattern>
+            </defs>
+            <rect width="600" height="400" fill="url(#gridPat)"/>
+
+            <g class="fills">
+              <rect class="fill ground-fill" x="0" y="340" width="600" height="60"/>
+              <rect class="fill f1" x="90" y="180" width="130" height="160"/>
+              <rect class="fill f3" x="380" y="140" width="130" height="200"/>
+              <rect class="fill f2" x="220" y="70" width="160" height="270"/>
+              <path class="fill f4" d="M205 70L300 28L395 70Z"/>
+              <path class="fill f5" d="M270 340V290a30 30 0 0 1 60 0V340Z"/>
+            </g>
+
+            <g id="windows"></g>
+
+            <g id="lines">
+              <path class="bp" pathLength="1" d="M30 340H570"/>
+              <path class="bp" pathLength="1" d="M90 340V180H220"/>
+              <path class="bp" pathLength="1" d="M220 340V70H380V340"/>
+              <path class="bp" pathLength="1" d="M380 140H510V340"/>
+              <path class="bp" pathLength="1" d="M205 70L300 28L395 70Z"/>
+              <path class="bp" pathLength="1" d="M270 340V290a30 30 0 0 1 60 0V340"/>
+              <path class="bp" pathLength="1" d="M90 180V340"/>
+              <path class="bp" pathLength="1" d="M510 140V340"/>
+            </g>
+
+            <g class="dim">
+              <path d="M90 362H510M90 355V369M510 355V369"/>
+              <path d="M545 70V340M538 70H552M538 340H552"/>
+              <path d="M300 6V335" stroke-dasharray="6 5"/>
+              <text x="300" y="388" text-anchor="middle">A-01 · FRONT ELEVATION · 42.0 m</text>
+              <text x="560" y="205" text-anchor="middle" transform="rotate(90 560 205)">18.0 m</text>
+            </g>
+
+            <text class="sign" x="300" y="377" text-anchor="middle">SHRUTI GAVALI &amp; ASSOCIATES · ARCHITECTS</text>
+          </svg>
+        </div>
+
+        <p class="bp-caption" id="bpCap" aria-live="polite">A blank sheet… every great building starts here.</p>
+        <div class="center"><button class="btn gold" id="bpBtn" type="button">✏️ Draw the blueprint</button></div>
+      </div>
+    </section>
+
+    <!-- ============ 6. BIRTHDAY LETTER ============ -->
+    <section class="section" id="letterSec">
+      <div class="container">
+        <header class="sec-head reveal">
+          <p class="eyebrow">Straight From the Heart</p>
+          <h2 class="title">A Letter for You</h2>
+        </header>
+
+        <div class="env-wrap reveal">
+          <button class="envelope" id="envelope" type="button" aria-expanded="false" aria-controls="letter" aria-label="Open the letter">
+            <span class="env-back"></span>
+            <span class="env-flap"></span>
+            <span class="env-front"></span>
+            <span class="env-seal">S</span>
+          </button>
+          <p class="hint" id="envHint">Tap the envelope to open it 💌</p>
+
+          <article class="letter" id="letter" aria-hidden="true">
+            <p class="l-greet" style="--p:0">Dear Shruti,</p>
+            <p style="--p:1">Happy Birthday! Today the world officially gets a little brighter, a little louder, and a lot more entertaining, all because you were born. 🎂</p>
+            <p style="--p:2">I have called you Pikachu, Dhole Madam and Dok Khau so many times that your real name sounds like a formal announcement. But every nickname means the same thing: you are someone I am really glad to have in my life.</p>
+            <p style="--p:3">I have watched you work towards your architecture diploma with so much dedication. You draw lines on paper like they are already part of tomorrow's skyline, and I truly believe one day they will be.</p>
+            <p style="--p:4">I also know the big dream: you will be so successful that people will need an appointment just to meet you. When that day comes, remember that I knew you before the waiting list. I will be there with a coffee in hand.</p>
+            <p style="--p:5">Thank you for the laughs, the chaos, the endless talking, and for making ordinary days feel like small celebrations. Keep dreaming big, keep drinking your coffee, and keep being exactly who you are.</p>
+            <p class="l-sign" style="--p:6">Your friend,<br><span>Malhar</span></p>
+            <div class="l-actions" style="--p:7"><button class="btn ghost small" id="foldBtn" type="button">Fold the letter</button></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 7. GALLERY ============ -->
+    <section class="section alt" id="gallery">
+      <div class="container">
+        <header class="sec-head reveal">
+          <p class="eyebrow">Memories</p>
+          <h2 class="title">Gallery of Moments</h2>
+          <p class="lede">Tap any photo to open it. Use the arrows (or swipe) to browse.</p>
+        </header>
+
+        <div class="gallery" id="galleryGrid">
+          <button class="g-item reveal" type="button" data-photo="shruti-1" data-caption="Main character energy ✨"><img data-photo="shruti-1" alt="Shruti, photo 1" loading="lazy"></button>
+          <button class="g-item reveal" type="button" data-photo="shruti-2" data-caption="Pikachu mode: ON ⚡"><img data-photo="shruti-2" alt="Shruti, photo 2" loading="lazy"></button>
+          <button class="g-item reveal" type="button" data-photo="shruti-3" data-caption="Dhole Madam approves 👑"><img data-photo="shruti-3" alt="Shruti, photo 3" loading="lazy"></button>
+          <button class="g-item reveal" type="button" data-photo="shruti-4" data-caption="Caught mid-smile 😄"><img data-photo="shruti-4" alt="Shruti, photo 4" loading="lazy"></button>
+          <button class="g-item reveal" type="button" data-photo="shruti-5" data-caption="Future architect, present legend 🏛️"><img data-photo="shruti-5" alt="Shruti, photo 5" loading="lazy"></button>
+          <button class="g-item reveal" type="button" data-photo="shruti-6" data-caption="Coffee not pictured (yet) ☕"><img data-photo="shruti-6" alt="Shruti, photo 6" loading="lazy"></button>
+          <button class="g-item reveal" type="button" data-photo="shruti-7" data-caption="Scenic, as always 🌿"><img data-photo="shruti-7" alt="Shruti, photo 7" loading="lazy"></button>
+          <button class="g-item reveal" type="button" data-photo="shruti-8" data-caption="Appointment pending 📅"><img data-photo="shruti-8" alt="Shruti, photo 8" loading="lazy"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 8. SIX WISHES ============ -->
+    <section class="section" id="wishes">
+      <div class="container">
+        <header class="sec-head reveal">
+          <p class="eyebrow">Make a Wish</p>
+          <h2 class="title">Six Little Wishes</h2>
+          <p class="lede">Open all six to unlock the finale.</p>
+        </header>
+
+        <div class="wish-grid">
+          <button class="wish reveal" type="button" aria-pressed="false">
+            <span class="w-closed">🎁<small>Wish 1</small></span>
+            <span class="w-open"><b>☕ Coffee</b><em>May your cups always be hot, your coffee strong, and your mornings gentle.</em></span>
+          </button>
+          <button class="wish reveal" type="button" aria-pressed="false">
+            <span class="w-closed">🎁<small>Wish 2</small></span>
+            <span class="w-open"><b>🏛️ Success</b><em>May every line you draw turn into a building people stop to admire.</em></span>
+          </button>
+          <button class="wish reveal" type="button" aria-pressed="false">
+            <span class="w-closed">🎁<small>Wish 3</small></span>
+            <span class="w-open"><b>📅 Appointments</b><em>May your calendar fill up so fast that even I have to book a slot to see you.</em></span>
+          </button>
+          <button class="wish reveal" type="button" aria-pressed="false">
+            <span class="w-closed">🎁<small>Wish 4</small></span>
+            <span class="w-open"><b>🌸 Happiness</b><em>May your smile stay exactly this easy, with no effort and no filter needed.</em></span>
+          </button>
+          <button class="wish reveal" type="button" aria-pressed="false">
+            <span class="w-closed">🎁<small>Wish 5</small></span>
+            <span class="w-open"><b>⚡ Energy</b><em>May your Pikachu power never run low, and may your battery always stay at 100%.</em></span>
+          </button>
+          <button class="wish reveal" type="button" aria-pressed="false">
+            <span class="w-closed">🎁<small>Wish 6</small></span>
+            <span class="w-open"><b>🤝 Friendship</b><em>May we keep teasing, laughing and annoying each other for a hundred more birthdays.</em></span>
+          </button>
+        </div>
+
+        <div class="wish-meta reveal">
+          <div class="wish-bar"><span id="wishBar"></span></div>
+          <p id="wishCount">0 / 6 wishes opened</p>
+          <button class="btn gold wish-done" id="wishDone" type="button">🌅 Go to the finale</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 9. SUNRISE FINALE ============ -->
+    <section class="finale" id="finale">
+      <div class="sky"></div>
+      <div class="sky-dawn"></div>
+      <div class="stars" id="stars"></div>
+      <div class="sun"></div>
+
+      <svg class="skyline" viewBox="0 0 1200 220" preserveAspectRatio="none" aria-hidden="true">
+        <rect x="0" y="130" width="80" height="90"/>
+        <rect x="80" y="90" width="60" height="130"/>
+        <rect x="140" y="120" width="90" height="100"/>
+        <rect x="230" y="60" width="70" height="160"/>
+        <rect x="300" y="100" width="100" height="120"/>
+        <rect x="400" y="40" width="60" height="180"/>
+        <rect x="460" y="110" width="90" height="110"/>
+        <rect x="550" y="70" width="80" height="150"/>
+        <rect x="630" y="50" width="50" height="170"/>
+        <polygon points="630,50 655,15 680,50"/>
+        <rect x="680" y="90" width="100" height="130"/>
+        <rect x="780" y="60" width="70" height="160"/>
+        <rect x="850" y="120" width="90" height="100"/>
+        <rect x="920" y="80" width="60" height="140"/>
+        <rect x="980" y="110" width="90" height="110"/>
+        <rect x="1070" y="70" width="60" height="150"/>
+        <rect x="1130" y="130" width="70" height="90"/>
+      </svg>
+
+      <div class="finale-content">
+        <p class="eyebrow gold">The Grand Finale</p>
+
+        <div class="finale-stage">
+          <div class="finale-intro" id="finaleIntro">
+            <p class="finale-line show" id="finaleLine" aria-live="polite">The best part is still to come…</p>
+            <button class="btn gold" id="finaleStart" type="button">🌅 Watch the sunrise</button>
+          </div>
+
+          <div class="finale-title" id="finaleTitle">
+            <span class="ft-small">Happy Birthday</span>
+            <span class="ft-name">Shruti</span>
+            <span class="ft-sub">Here's to your brightest year yet ☕✨</span>
+          </div>
+        </div>
+
+        <div class="finale-btns" id="finaleBtns">
+          <button class="btn gold js-celebrate" type="button">🎉 Celebrate</button>
+          <button class="btn ghost js-replay" type="button">🔁 Replay the surprise</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Made with ☕ and far too many nicknames, for Shruti Gavali · 18 October</p>
+      <button class="link-btn js-replay" type="button">🔁 Replay from the beginning</button>
+    </footer>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Photo viewer">
+    <button class="lb-close" id="lbClose" type="button" aria-label="Close">✕</button>
+    <button class="lb-nav prev" id="lbPrev" type="button" aria-label="Previous photo">‹</button>
+    <figure class="lb-fig">
+      <img id="lbImg" alt="">
+      <div class="photo-fallback lb-ph" id="lbPh" hidden>
+        <span class="pf-ico">📷</span>
+        <small id="lbPhTxt"></small>
+      </div>
+      <figcaption id="lbCap"></figcaption>
+      <span class="lb-count" id="lbCount"></span>
+    </figure>
+    <button class="lb-nav next" id="lbNext" type="button" aria-label="Next photo">›</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
